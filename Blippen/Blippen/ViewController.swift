@@ -9,59 +9,51 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController, WKNavigationDelegate {
+class ViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegate {
     
+    var webView: WKWebView?
     
-    var webView: WKWebView!
-   // Input field for RFID number
+    // Input field for RFID number
     @IBOutlet weak var inputField: UITextField!
-
-    //func controlTextDidEndEditing(_ aNotification : Notification)
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        print("return pressed")
-        textField.resignFirstResponder()
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        // Never release focus from the text field
         return false
     }
-
-    func submitForm() {
-        print("successful submit form")
-        
-        webView!.evaluateJavaScript("document.getElementById('rfid').value='2043261358';", completionHandler: nil)
-        
-        webView!.evaluateJavaScript("document.getElementById('form').dispatchEvent(new Event('submit'));", completionHandler: nil)
-        
-    }
     
-    override func loadView() {
-        webView = WKWebView()
-        webView.navigationDelegate = self
-        view = webView
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Run when enter is pressed in the text field.
+        let rfidNumber: String = textField.text!
+        
+        // So, why do this instead of just using the field in the web view? It turns out that the card reader spits out its data
+        // to fast for the web view, resulting in garbled data. So we use a native text field (which behaves nicely) instead.
+        //
+        webView?.evaluateJavaScript("document.getElementById('rfid').value='\(rfidNumber)';", completionHandler: nil)
+        webView?.evaluateJavaScript("document.getElementById('form').dispatchEvent(new Event('submit'));", completionHandler: nil)
+        
+        // Resets the text field for the next entry.
+        textField.text = ""
+        
+        return false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        webView = WKWebView(frame: view.bounds)
+        webView?.navigationDelegate = self
+        view.addSubview(webView!)
+        
+        inputField.delegate = self
         
         // Set focus to the input field.
-        
-        //inputField.becomeFirstResponder()
+        inputField.becomeFirstResponder()
         
         // Load the url into the webview
         let blippURL = URL(string: "https://blipper:Blipper123@blipp.baljan.org")!
-        webView.load(URLRequest(url: blippURL))
-        
-        // Waiting 4 sec
-        /*DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-            self.submitForm()
-        })*/
-        
-        
-
+        webView?.load(URLRequest(url: blippURL))
     }
     
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
