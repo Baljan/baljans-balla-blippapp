@@ -43,16 +43,20 @@ class ViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegat
                         persistence: .permanent)
                     URLCredentialStorage.shared.setDefaultCredential(enteredCredentials, for: challenge.protectionSpace)
                     completionHandler(.useCredential, enteredCredentials)
-                    self.rfidField.becomeFirstResponder()
+
                 })
                 
-                rfidField.resignFirstResponder()
                 present(alertController, animated: true, completion: nil)
             }
         } else {
             completionHandler(.performDefaultHandling, nil)
         }
         
+    }
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        // Run when done loading the web view
+        rfidField.becomeFirstResponder()
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
@@ -84,8 +88,6 @@ class ViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegat
         webView.load(URLRequest(url: blippURL!))
         
         rfidField.delegate = self
-        // Set focus to the input field.
-        rfidField.becomeFirstResponder()
     }
 }
 
