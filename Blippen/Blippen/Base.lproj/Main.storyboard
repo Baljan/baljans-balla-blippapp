@@ -39,7 +39,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="inputField" destination="lkw-Nc-ijo" id="2ty-xU-nvY"/>
+                        <outlet property="rfidField" destination="lkw-Nc-ijo" id="nyC-Px-3t8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

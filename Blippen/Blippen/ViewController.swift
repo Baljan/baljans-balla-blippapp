@@ -12,10 +12,9 @@ import WebKit
 class ViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegate {
     
     var webView = WKWebView()
-    var modalOpen = false
     
     // Input field for RFID number
-    @IBOutlet weak var inputField: UITextField!
+    @IBOutlet weak var rfidField: UITextField!
     
     func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         
@@ -44,15 +43,11 @@ class ViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegat
                         persistence: .permanent)
                     URLCredentialStorage.shared.setDefaultCredential(enteredCredentials, for: challenge.protectionSpace)
                     completionHandler(.useCredential, enteredCredentials)
-                    self.inputField.becomeFirstResponder()
+                    self.rfidField.becomeFirstResponder()
                 })
                 
-                modalOpen = true
-                inputField.resignFirstResponder()
-                present(alertController, animated: true, completion: {
-                    self.modalOpen = false
-                    self.inputField.becomeFirstResponder()
-                })
+                rfidField.resignFirstResponder()
+                present(alertController, animated: true, completion: nil)
             }
         } else {
             completionHandler(.performDefaultHandling, nil)
@@ -83,19 +78,14 @@ class ViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegat
         super.viewDidLoad()
         
         webView.frame = view.bounds
-        
         webView.navigationDelegate = self
         view.addSubview(webView)
-        
-        inputField.delegate = self
-        
-        // Set focus to the input field.
-        inputField.becomeFirstResponder()
-        
-        // Load the url into the webview
         let blippURL = URL(string: "https://blipp.baljan.org/")
-        
         webView.load(URLRequest(url: blippURL!))
+        
+        rfidField.delegate = self
+        // Set focus to the input field.
+        rfidField.becomeFirstResponder()
     }
 }
 
