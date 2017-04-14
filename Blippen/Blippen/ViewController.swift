@@ -59,6 +59,7 @@ class ViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegat
         rfidField.becomeFirstResponder()
     }
     
+    
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         // Never release focus from the text field unless the web view is loading ('loading' includes waiting for the log in modal to be dismissed)
         return webView.isLoading
@@ -78,15 +79,29 @@ class ViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegat
         return false
     }
     
+    // Update the webView fram to the new window size after rotate.
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: nil) { _ in
+            self.webView.frame = self.view.bounds
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Hide the keyboard shortcut bar when external keyboard is connected.
+        rfidField.autocorrectionType = .no
+        let shortcut: UITextInputAssistantItem? = rfidField.inputAssistantItem
+        shortcut?.leadingBarButtonGroups = []
+        shortcut?.trailingBarButtonGroups = []
         
+        // Load the webView
         webView.frame = view.bounds
         webView.navigationDelegate = self
         view.addSubview(webView)
         let blippURL = URL(string: "https://blipp.baljan.org/")
         webView.load(URLRequest(url: blippURL!))
-        
         rfidField.delegate = self
     }
 }
