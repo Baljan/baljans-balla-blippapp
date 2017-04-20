@@ -12,26 +12,7 @@
 		3310F0CB1E4373CA00B72817 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3310F0C91E4373CA00B72817 /* Main.storyboard */; };
 		3310F0CD1E4373CA00B72817 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3310F0CC1E4373CA00B72817 /* Assets.xcassets */; };
 		3310F0D01E4373CA00B72817 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3310F0CE1E4373CA00B72817 /* LaunchScreen.storyboard */; };
-		3310F0DB1E4373CA00B72817 /* BlippenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3310F0DA1E4373CA00B72817 /* BlippenTests.swift */; };
-		3310F0E61E4373CA00B72817 /* BlippenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3310F0E51E4373CA00B72817 /* BlippenUITests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3310F0D71E4373CA00B72817 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3310F0BA1E4373C900B72817 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3310F0C11E4373C900B72817;
-			remoteInfo = Blippen;
-		};
-		3310F0E21E4373CA00B72817 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3310F0BA1E4373C900B72817 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3310F0C11E4373C900B72817;
-			remoteInfo = Blippen;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3310F0C21E4373CA00B72817 /* Blippen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blippen.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,30 +22,14 @@
 		3310F0CC1E4373CA00B72817 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3310F0CF1E4373CA00B72817 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3310F0D11E4373CA00B72817 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3310F0D61E4373CA00B72817 /* BlippenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlippenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3310F0DA1E4373CA00B72817 /* BlippenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlippenTests.swift; sourceTree = "<group>"; };
 		3310F0DC1E4373CA00B72817 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3310F0E11E4373CA00B72817 /* BlippenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlippenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3310F0E51E4373CA00B72817 /* BlippenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlippenUITests.swift; sourceTree = "<group>"; };
 		3310F0E71E4373CA00B72817 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3310F0BF1E4373C900B72817 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3310F0D31E4373CA00B72817 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3310F0DE1E4373CA00B72817 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -88,8 +53,6 @@
 			isa = PBXGroup;
 			children = (
 				3310F0C21E4373CA00B72817 /* Blippen.app */,
-				3310F0D61E4373CA00B72817 /* BlippenTests.xctest */,
-				3310F0E11E4373CA00B72817 /* BlippenUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,42 +108,6 @@
 			productReference = 3310F0C21E4373CA00B72817 /* Blippen.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3310F0D51E4373CA00B72817 /* BlippenTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3310F0ED1E4373CA00B72817 /* Build configuration list for PBXNativeTarget "BlippenTests" */;
-			buildPhases = (
-				3310F0D21E4373CA00B72817 /* Sources */,
-				3310F0D31E4373CA00B72817 /* Frameworks */,
-				3310F0D41E4373CA00B72817 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3310F0D81E4373CA00B72817 /* PBXTargetDependency */,
-			);
-			name = BlippenTests;
-			productName = BlippenTests;
-			productReference = 3310F0D61E4373CA00B72817 /* BlippenTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		3310F0E01E4373CA00B72817 /* BlippenUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3310F0F01E4373CA00B72817 /* Build configuration list for PBXNativeTarget "BlippenUITests" */;
-			buildPhases = (
-				3310F0DD1E4373CA00B72817 /* Sources */,
-				3310F0DE1E4373CA00B72817 /* Frameworks */,
-				3310F0DF1E4373CA00B72817 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3310F0E31E4373CA00B72817 /* PBXTargetDependency */,
-			);
-			name = BlippenUITests;
-			productName = BlippenUITests;
-			productReference = 3310F0E11E4373CA00B72817 /* BlippenUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -193,20 +120,8 @@
 				TargetAttributes = {
 					3310F0C11E4373C900B72817 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = W94SCYZEVR;
-						ProvisioningStyle = Automatic;
-					};
-					3310F0D51E4373CA00B72817 = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = W94SCYZEVR;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 3310F0C11E4373C900B72817;
-					};
-					3310F0E01E4373CA00B72817 = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = W94SCYZEVR;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 3310F0C11E4373C900B72817;
+						DevelopmentTeam = 593RXVNQHR;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -224,8 +139,6 @@
 			projectRoot = "";
 			targets = (
 				3310F0C11E4373C900B72817 /* Blippen */,
-				3310F0D51E4373CA00B72817 /* BlippenTests */,
-				3310F0E01E4373CA00B72817 /* BlippenUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -241,20 +154,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3310F0D41E4373CA00B72817 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3310F0DF1E4373CA00B72817 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -267,36 +166,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3310F0D21E4373CA00B72817 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3310F0DB1E4373CA00B72817 /* BlippenTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3310F0DD1E4373CA00B72817 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3310F0E61E4373CA00B72817 /* BlippenUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3310F0D81E4373CA00B72817 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3310F0C11E4373C900B72817 /* Blippen */;
-			targetProxy = 3310F0D71E4373CA00B72817 /* PBXContainerItemProxy */;
-		};
-		3310F0E31E4373CA00B72817 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3310F0C11E4373C900B72817 /* Blippen */;
-			targetProxy = 3310F0E21E4373CA00B72817 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3310F0C91E4373CA00B72817 /* Main.storyboard */ = {
@@ -415,11 +285,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = W94SCYZEVR;
+				DEVELOPMENT_TEAM = 593RXVNQHR;
 				INFOPLIST_FILE = Blippen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Tobias-Lundgren.Blippen";
+				PRODUCT_BUNDLE_IDENTIFIER = org.baljan.blipp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b2a6a2b2-ada2-4db9-911b-7331fb01db79";
+				PROVISIONING_PROFILE_SPECIFIER = Baljan;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -428,70 +300,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = W94SCYZEVR;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Blippen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Tobias-Lundgren.Blippen";
+				PRODUCT_BUNDLE_IDENTIFIER = org.baljan.blipp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		3310F0EE1E4373CA00B72817 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = W94SCYZEVR;
-				INFOPLIST_FILE = BlippenTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Tobias-Lundgren.BlippenTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blippen.app/Blippen";
-			};
-			name = Debug;
-		};
-		3310F0EF1E4373CA00B72817 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = W94SCYZEVR;
-				INFOPLIST_FILE = BlippenTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Tobias-Lundgren.BlippenTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blippen.app/Blippen";
-			};
-			name = Release;
-		};
-		3310F0F11E4373CA00B72817 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = W94SCYZEVR;
-				INFOPLIST_FILE = BlippenUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Tobias-Lundgren.BlippenUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Blippen;
-			};
-			name = Debug;
-		};
-		3310F0F21E4373CA00B72817 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = W94SCYZEVR;
-				INFOPLIST_FILE = BlippenUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Tobias-Lundgren.BlippenUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Blippen;
 			};
 			name = Release;
 		};
@@ -514,22 +329,7 @@
 				3310F0EC1E4373CA00B72817 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		3310F0ED1E4373CA00B72817 /* Build configuration list for PBXNativeTarget "BlippenTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3310F0EE1E4373CA00B72817 /* Debug */,
-				3310F0EF1E4373CA00B72817 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		3310F0F01E4373CA00B72817 /* Build configuration list for PBXNativeTarget "BlippenUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3310F0F11E4373CA00B72817 /* Debug */,
-				3310F0F21E4373CA00B72817 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
