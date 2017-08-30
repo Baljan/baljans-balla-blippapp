@@ -101,7 +101,7 @@ class ViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegat
         webView.navigationDelegate = self
         view.addSubview(webView)
         let blippURL = URL(string: "https://blipp.baljan.org/")
-        webView.load(URLRequest(url: blippURL!))
+        webView.load(URLRequest(url: blippURL!, cachePolicy: URLRequest.CachePolicy.reloadIgnoringCacheData))
         rfidField.delegate = self
     }
 }
