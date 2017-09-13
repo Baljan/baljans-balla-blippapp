@@ -59,6 +59,19 @@ class ViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegat
         rfidField.becomeFirstResponder()
     }
     
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        let refreshAlert = UIAlertController(title: "Kunde inte starta Blippen", message: "Detta kan bero på att iPaden inte hunnit koppla upp sig mot nätverket.\n\nVill du försöka igen?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ja", style: .default, handler: { (action: UIAlertAction!) in
+            self.reloadWebView()
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Nej", style: .cancel, handler: { (action: UIAlertAction!) in
+            exit(1)
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         // Never release focus from the text field unless the web view is loading ('loading' includes waiting for the log in modal to be dismissed)
@@ -100,9 +113,13 @@ class ViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegat
         webView.frame = view.bounds
         webView.navigationDelegate = self
         view.addSubview(webView)
+        reloadWebView()
+        rfidField.delegate = self
+    }
+    
+    func reloadWebView() {
         let blippURL = URL(string: "https://blipp.baljan.org/")
         webView.load(URLRequest(url: blippURL!, cachePolicy: URLRequest.CachePolicy.reloadIgnoringCacheData))
-        rfidField.delegate = self
     }
 }
 

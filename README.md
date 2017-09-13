@@ -4,4 +4,5 @@ A swift project to run ([Baljans Balla Blipp](https://github.com/Baljan/baljans-
 
 ## Contributors
 * Tobias Lundgren ([@lundgren2](https://github.com/lundgren2))
+* Patrik Sletmo ([@patriksletmo](https://github.com/patriksletmo))
 * Olle Vidner ([@ovidner](https://github.com/ovidner))
