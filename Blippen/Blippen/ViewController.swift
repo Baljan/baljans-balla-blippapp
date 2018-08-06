@@ -112,6 +112,8 @@ class ViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegat
         // Load the webView
         webView.frame = view.bounds
         webView.navigationDelegate = self
+        webView.scrollView.maximumZoomScale = 1.0;
+        webView.scrollView.minimumZoomScale = 1.0;
         view.addSubview(webView)
         reloadWebView()
         rfidField.delegate = self
