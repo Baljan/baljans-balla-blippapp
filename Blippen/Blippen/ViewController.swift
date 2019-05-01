@@ -60,7 +60,7 @@ class ViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegat
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        let refreshAlert = UIAlertController(title: "Kunde inte starta Blippen", message: "Detta kan bero på att iPaden inte hunnit koppla upp sig mot nätverket.\n\nVill du försöka igen?", preferredStyle: UIAlertControllerStyle.alert)
+        let refreshAlert = UIAlertController(title: "Kunde inte starta Blippen", message: "Detta kan bero på att iPaden inte hunnit koppla upp sig mot nätverket.\n\nVill du försöka igen?", preferredStyle: UIAlertController.Style.alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Ja", style: .default, handler: { (action: UIAlertAction!) in
             self.reloadWebView()
