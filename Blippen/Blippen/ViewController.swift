@@ -16,47 +16,41 @@ class ViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegat
     // Input field for RFID number
     @IBOutlet weak var rfidField: UITextField!
     
-    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+    func setTokenCookie(value: String) {
+        webView.evaluateJavaScript("Cookies.set('token', '\(value)');", completionHandler: nil)
+    }
+    
+    func setOrAskForTokenCookie() {
+        let storedToken = UserDefaults.standard.string(forKey: "Token")
         
-        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodHTTPBasic {
-            let storedCredentials = URLCredentialStorage.shared.defaultCredential(for: challenge.protectionSpace)
-            
-            if storedCredentials !== nil && challenge.previousFailureCount == 0 {
-                // Try stored credentials if they have not failed previously
-                completionHandler(.useCredential, storedCredentials)
-            } else {
-                // If no or bad credentials, open a modal dialog and ask for credentials
-                
-                let alertController = UIAlertController(title: "Log in", message: "This app is for internal use only.", preferredStyle: .alert)
-                alertController.addTextField(configurationHandler: { textField in
-                    textField.placeholder = "user name"
-                })
-                alertController.addTextField(configurationHandler: { textField in
-                    textField.placeholder = "password"
-                    textField.isSecureTextEntry = true
-                })
-                alertController.addAction(UIAlertAction(title: "Log in", style: .default) { action in
-                    // Store credentials in the keychain and send them to the server
-                    let enteredCredentials = URLCredential(
-                        user: (alertController.textFields?[0].text)!,
-                        password: (alertController.textFields?[1].text)!,
-                        persistence: .permanent)
-                    URLCredentialStorage.shared.setDefaultCredential(enteredCredentials, for: challenge.protectionSpace)
-                    completionHandler(.useCredential, enteredCredentials)
-
-                })
-                
-                present(alertController, animated: true, completion: nil)
-            }
+        if let token = storedToken {
+            // Set cookie with stored credentials
+            setTokenCookie(value: token)
+            rfidField.becomeFirstResponder()
         } else {
-            completionHandler(.performDefaultHandling, nil)
+            // If no token, open a modal dialog and ask for credentials
+            let alertController = UIAlertController(title: "Configure token", message: "This app is for internal use only.", preferredStyle: .alert)
+            alertController.addTextField(configurationHandler: { textField in
+                textField.placeholder = "Token"
+            })
+            alertController.addAction(UIAlertAction(title: "Save", style: .default) { action in
+                // Store token and update cookie
+                let token = (alertController.textFields?[0].text)!
+                
+                UserDefaults.standard.set(token, forKey: "Token")
+                
+                self.setTokenCookie(value: token)
+                self.rfidField.becomeFirstResponder()
+            })
+            
+            present(alertController, animated: true, completion: nil)
         }
         
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         // Run when done loading the web view
-        rfidField.becomeFirstResponder()
+        setOrAskForTokenCookie()
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
